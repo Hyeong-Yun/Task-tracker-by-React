@@ -1,9 +1,12 @@
 import React from 'react'
+import Proptypes from 'prop-types'
+import Button from './Button'
 
-export const Header = ({title}) => {
+export const Header = ({title, onAdd, showAdd}) => {
     return (
         <header>
             {title}
+            <Button onClick ={onAdd} className = "btn" color = {showAdd ? 'red' : 'green'} text = {showAdd ? 'close' : 'Open'} />
         </header>
     )
 }
@@ -11,5 +14,10 @@ export const Header = ({title}) => {
 Header.defaultProps = {
     title: "Task Tracker"
 }
+
+Header.propTypes = {
+    title: Proptypes.string.isRequired
+}
+
 
 export default Header
